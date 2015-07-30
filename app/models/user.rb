@@ -57,5 +57,4 @@ class User < ActiveRecord::Base
   def have?
     have_items.include?(item)
   end
-  
 end
