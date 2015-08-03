@@ -1,5 +1,11 @@
 <% if params[:type] == "Have" %>
-  $(".have-<%= @item.id %>").replaceWith("<%= escape_javascript(render('items/have' , item: @item)) %>");
+  <% if current_user.have?(@item) %>
+    $(".have-<%= @item.id %>").replaceWith("<%= escape_javascript(render('items/unhave' , item: @item)) %>");
+  <% else %>
+    $(".have-<%= @item.id %>").replaceWith("<%= escape_javascript(render('items/have' , item: @item)) %>");
+  <% end %>
+<% elsif current_user.want?(@item) %>
+  $(".want-<%= @item.id %>").replaceWith("<%= escape_javascript(render('items/unwant' , item: @item)) %>");
 <% else %>
   $(".want-<%= @item.id %>").replaceWith("<%= escape_javascript(render('items/want' , item: @item)) %>");
 <% end %>

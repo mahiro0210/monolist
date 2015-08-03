@@ -55,5 +55,6 @@ group :development, :test do
 
   gem 'pry-rails'
   gem 'rails-erd'
+  gem 'pry-byebug'
 end
 
