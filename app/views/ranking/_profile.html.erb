@@ -1,0 +1,21 @@
+<div class="user-profile">
+  <div class="name">
+    <h1>Top10 <%= title %><h1>
+  </div>
+  <div class="status">
+    <ul>
+      <li>
+        <div class="status-label">All User</div>
+        <div class="status-value">
+          <%= User.all.count %>
+        </div>
+      </li>
+      <li>
+        <div class="status-label">All <%= title %></div>
+        <div id="followers" class="status-value">
+          <%= rank.count %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

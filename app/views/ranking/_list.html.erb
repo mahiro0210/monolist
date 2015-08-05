@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="container-inner inner-default clearfix">
+    <% count ||= 0 %>
+    <% rank.take(10).each do |key, value| %>
+      <div class="item-box">
+        <div class="image">
+          <div class="img-wrap">
+            <% item = items.find_by(id: key) %>
+            <% if item.large_image.present? %>
+              <%= image_tag(item.large_image , alt: item.title) %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: item.title) %>
+            <% end %>
+            <span class="badge badge-success">ランキング <%= count+= 1 %> 位</span>
+            <span class="badge"><%= title %> <%= value %> 人</span></p>
+          </div>
+        </div>
+        <div class="detail">
+          <p class="title">
+            <%= item.title %>
+          </p>
+        </div>
+          <%= render 'items/action' , item: item if logged_in? %>
+      </div>
+    <% end %>
+  </div>
+</div>
